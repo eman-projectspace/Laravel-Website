@@ -4,6 +4,7 @@
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 // Static Home
 Route::view('/', 'index');
@@ -37,4 +38,8 @@ Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'logo
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     // other protected routes
+});
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 });
