@@ -4,8 +4,9 @@
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\Admin\AdminDashboardController;
-
+// use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Middleware\IsAdmin;
 // Static Home
 Route::view('/', 'index');
 
@@ -40,11 +41,8 @@ Route::middleware(['auth'])->group(function () {
     // other protected routes
 });
 
-// Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
-//     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-// });
 
-
-Route::prefix('admin')->group(function () {
+Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 });
+
