@@ -40,6 +40,11 @@ Route::middleware(['auth'])->group(function () {
     // other protected routes
 });
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+// Route::prefix('admin')->middleware(['auth', 'is_admin'])->group(function () {
+//     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+// });
+
+
+Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 });
