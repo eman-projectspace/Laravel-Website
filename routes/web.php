@@ -18,6 +18,11 @@ Route::get('/product/{id}', [ShopController::class, 'show']);
 Route::get('/products/create', [ShopController::class, 'create'])->name('products.create');
 Route::post('/products', [ShopController::class, 'store'])->name('products.store');
 
+
+// Catrgory
+Route::get('/category/{category}', [ShopController::class, 'category'])->name('category');
+
+
 // Cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
@@ -48,14 +53,11 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 });
 
-// routes/web.php
-// Route::get('/fiction', function () {
-//     return view('Fiction');
-// });
+// Navbar Routes
 
 Route::get('/fiction', function () {
     $books = Product::where('category', 'Fiction')->get();
-    return view('Fiction', compact('books'));
+    return view('fiction', compact('books'));
 });
 
 

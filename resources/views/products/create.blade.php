@@ -27,6 +27,23 @@
             <label for="images" class="form-label">Book Cover (Image)</label>
             <input type="file" name="images[]" id="images" class="form-control" multiple required>
         </div>
+<div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <select name="category" id="category" class="form-control" required>
+        <option value="">-- Select Category --</option>
+        <option value="Fiction">Fiction</option>
+        <option value="NonFiction">NonFiction</option>
+        <option value="Children">Children</option>
+        <option value="Stationery">Stationery</option>
+        <option value="Toys">Toys</option>
+        <!-- Add more categories as needed -->
+    </select>
+</div>
+<div class="mb-3">
+    <label for="stock" class="form-label">Stock Quantity</label>
+    <input type="number" name="stock" id="stock" class="form-control" min="0" value="0" required>
+</div>
+
 
         <button type="submit" class="btn btn-success">Add Book</button>
     </form>
