@@ -99,11 +99,12 @@
 <!-- As a link -->
 <nav class="navbar navbar-expand-lg bg-brown shadow-sm border-top border-bottom py-2">
   <div class="container-fluid justify-content-center gap-4 flex-wrap">
-    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="#">Fiction</a>
-    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="#">Non-Fiction</a>
-    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="#">Children</a>
-    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="#">Stationery</a>
-    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="#">Toys</a>
+    <a  href="{{ url('/fiction') }}" class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover">Fiction
+</a>
+    <a  href="{{ url('/NonFiction') }}" class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" >Non-Fiction</a>
+    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="{{ url('/Children') }}" >Children</a>
+    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="{{ url('/Stationery') }}" >Stationery</a>
+    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover"href="{{ url('/Toys') }}" >Toys</a>
   </div>
 </nav>
 

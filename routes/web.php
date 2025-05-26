@@ -7,6 +7,8 @@ use App\Http\Controllers\CheckoutController;
 // use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Middleware\IsAdmin;
+use App\Models\Product;
+
 // Static Home
 Route::view('/', 'index');
 
@@ -46,3 +48,32 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 });
 
+// routes/web.php
+// Route::get('/fiction', function () {
+//     return view('Fiction');
+// });
+
+Route::get('/fiction', function () {
+    $books = Product::where('category', 'Fiction')->get();
+    return view('Fiction', compact('books'));
+});
+
+
+Route::get('/NonFiction', function () {
+    $books = Product::where('category', 'NonFiction')->get();
+    return view('NonFiction', compact('books'));
+});
+
+
+Route::get('/Children', function () {
+    $books = Product::where('category', 'Children')->get();
+    return view('Children', compact('books'));
+});
+
+Route::get('/Stationery', function () {
+    return view('Stationery');
+});
+
+Route::get('/Toys', function () {
+    return view('Toys');
+});
