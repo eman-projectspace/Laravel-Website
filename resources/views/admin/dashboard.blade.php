@@ -12,14 +12,17 @@
     <p class="text-muted">Here's an overview of your store.</p>
 
     <div class="row g-4 mt-3">
-        <div class="col-md-3">
-            <div class="card text-white bg-primary shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Total Users</h5>
-                    <p class="fs-2">{{ $totalUsers ?? 0 }}</p>
-                </div>
+      <div class="col-md-3">
+    <a href="{{ route('admin.users') }}" class="text-decoration-none">
+        <div class="card text-white bg-primary shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <p class="fs-2">{{ $totalUsers ?? 0 }}</p>
             </div>
         </div>
+    </a>
+</div>
+
 
         <div class="col-md-3">
             <div class="card text-white bg-success shadow-sm">

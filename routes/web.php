@@ -49,9 +49,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-});
 
 // Navbar Routes
 
@@ -87,4 +84,16 @@ Route::post('/stationery/store', [StationeryController::class, 'store'])->name('
 // Toys routes
 Route::get('/toys/create', [ToyController::class, 'create'])->name('toys.create');
 Route::post('/toys/store', [ToyController::class, 'store'])->name('toys.store');
+
+
+
+
+Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/users', [AdminDashboardController::class, 'showUsers'])->name('admin.users');
+
+
+});
+
+
 
