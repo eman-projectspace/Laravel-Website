@@ -55,5 +55,11 @@ public function deleteProduct($id)
     return redirect()->route('admin.products')->with('success', 'Product deleted successfully!');
 }
 
+public function showOrders()
+{
+    $orders = Order::latest()->get(); // or ->paginate(10) if you want pagination
+    return view('admin.orders.index', compact('orders'));
+}
+
 
 }

@@ -96,6 +96,7 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () 
 Route::get('/products/{id}/edit', [AdminDashboardController::class, 'editProduct'])->name('admin.products.edit');
 Route::put('/products/{id}', [AdminDashboardController::class, 'updateProduct'])->name('admin.products.update');
 Route::delete('/products/{id}', [AdminDashboardController::class, 'deleteProduct'])->name('admin.products.delete');
+Route::get('/admin/orders', [AdminDashboardController::class, 'showOrders'])->name('admin.orders');
 
 
 });
