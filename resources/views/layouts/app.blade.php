@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@yield('title', 'My Laravel Website')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
+ <link rel="icon" type="image/png" href="/images/favicon.png">
 
+ <style>
 
+  body {
+    font-family: 'Poppins', sans-serif;
+  margin-top: 92px; 
+  }
+.second-navbar {
+  top: 70px; /* height of the first navbar */
+  z-index: 1030; /* should be the same or higher than the first navbar */
+}
 .text-brown {
   color: #5d4037 !important;
 }
@@ -29,7 +38,8 @@
 </head>
 <body>
     <header>
-<nav class="navbar navbar-expand-lg bg-brown text-white shadow-sm py-3">
+<nav class="navbar fixed-top navbar-expand-lg bg-brown text-white shadow-sm py-3">
+
   <div class="container-fluid">
     <a class="navbar-brand d-flex align-items-center text-white" href="#">
       <img src="/images/reading.png" alt="Logo" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
@@ -44,7 +54,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link fw-semibold text-white" href="#"><i class="bi bi-house-door me-1"></i>Home</a>
+          <a class="nav-link fw-semibold text-white" href="#"><i class="bi bi-house-door me-1"></i>Your Profile</a>
         </li>
 
         <li class="nav-item position-relative">
@@ -97,7 +107,7 @@
 
 <!--2nd navbar  -->
 <!-- As a link -->
-<nav class="navbar navbar-expand-lg bg-brown shadow-sm border-top border-bottom py-2">
+<nav class="navbar sticky-top navbar-expand-lg bg-brown shadow-sm border-top border-bottom py-2">
   <div class="container-fluid justify-content-center gap-4 flex-wrap">
     <a  href="{{ url('/fiction') }}" class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover">Fiction
 </a>
@@ -118,9 +128,16 @@
         @yield('content')
     </main>
 
-    <footer class="text-center py-4">
-        &copy; {{ date('Y') }} My Laravel Website
-    </footer>
+  <footer class="bg-dark text-light py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-1">&copy; {{ date('Y') }} Readings Bookstore. All rights reserved.</p>
+    <p class="mb-0">
+      <a href="#" class="text-light text-decoration-none">Privacy Policy</a> |
+      <a href="#" class="text-light text-decoration-none">Terms of Service</a>
+    </p>
+  </div>
+</footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

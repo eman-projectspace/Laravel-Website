@@ -79,3 +79,12 @@ Route::get('/Stationery', function () {
 Route::get('/Toys', function () {
     return view('Toys');
 });
+
+// Stationery routes
+Route::get('/stationery/create', [StationeryController::class, 'create'])->name('stationery.create');
+Route::post('/stationery/store', [StationeryController::class, 'store'])->name('stationery.store');
+
+// Toys routes
+Route::get('/toys/create', [ToyController::class, 'create'])->name('toys.create');
+Route::post('/toys/store', [ToyController::class, 'store'])->name('toys.store');
+
