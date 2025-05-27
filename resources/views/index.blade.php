@@ -218,11 +218,28 @@
 <!--  -->
 <section class="text-center my-5">
   <h3 class="mb-3">Subscribe to our newsletter</h3>
-  <form class="d-flex justify-content-center gap-2">
-    <input type="email" placeholder="Your email" class="form-control w-25" />
-    <button class="btn btn-brown">Subscribe</button>
+  <form id="subscribeForm" class="d-flex justify-content-center gap-2">
+    <input type="email" id="emailInput" placeholder="Your email" class="form-control w-25" required />
+    <button type="submit" class="btn btn-brown">Subscribe</button>
   </form>
+  <p id="message" class="mt-3 text-success" style="display:none;">Subscribed!</p>
 </section>
+
+<script>
+  const form = document.getElementById('subscribeForm');
+  const message = document.getElementById('message');
+  const emailInput = document.getElementById('emailInput');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // prevent page reload
+
+    if(emailInput.value) {
+      message.style.display = 'block';  // show the subscribed message
+      form.reset(); // clear input field
+    }
+  });
+</script>
+
 
   <!-- About / Callout -->
   <section style="background:#5d4037; color:#fff; padding:3rem 0; text-align:center;">
