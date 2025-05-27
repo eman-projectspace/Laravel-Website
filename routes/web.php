@@ -91,6 +91,11 @@ Route::post('/toys/store', [ToyController::class, 'store'])->name('toys.store');
 Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/users', [AdminDashboardController::class, 'showUsers'])->name('admin.users');
+    Route::get('/products', [AdminDashboardController::class, 'showProducts'])->name('admin.products');
+// Edit + Delete
+Route::get('/products/{id}/edit', [AdminDashboardController::class, 'editProduct'])->name('admin.products.edit');
+Route::put('/products/{id}', [AdminDashboardController::class, 'updateProduct'])->name('admin.products.update');
+Route::delete('/products/{id}', [AdminDashboardController::class, 'deleteProduct'])->name('admin.products.delete');
 
 
 });

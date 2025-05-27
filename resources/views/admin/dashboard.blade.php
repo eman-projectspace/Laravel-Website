@@ -24,14 +24,15 @@
 </div>
 
 
-        <div class="col-md-3">
-            <div class="card text-white bg-success shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Total Products</h5>
-                    <p class="fs-2">{{ $totalProducts ?? 0 }}</p>
-                </div>
-            </div>
+        <a href="{{ route('admin.products') }}" class="text-decoration-none">
+    <div class="card text-white bg-success shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Total Products</h5>
+            <p class="fs-2">{{ $totalProducts ?? 0 }}</p>
         </div>
+    </div>
+</a>
+
 
         <div class="col-md-3">
             <div class="card text-white bg-warning shadow-sm">
