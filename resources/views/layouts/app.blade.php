@@ -113,8 +113,9 @@
 </a>
     <a  href="{{ url('/NonFiction') }}" class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" >Non-Fiction</a>
     <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="{{ url('/Children') }}" >Children</a>
-    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="{{ url('/Stationery') }}" >Stationery</a>
-    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover"href="{{ url('/Toys') }}" >Toys</a>
+    <a class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover" href="{{ url('/history') }}">History</a>
+
+  
   </div>
 </nav>
 

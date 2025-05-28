@@ -20,6 +20,12 @@ class ShopController extends Controller
     return view('shop', compact('products'));
 }
 
+public function index()
+{
+    $bookCategories = ['Fiction', 'NonFiction', 'Children', 'History'];
+    $products = Product::whereIn('category', $bookCategories)->get();
+    return view('shop', compact('products'));
+}
 
     // Show all products on the homepage (index)
     public function home()

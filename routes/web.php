@@ -69,6 +69,15 @@ Route::get('/Children', function () {
     return view('Children', compact('books'));
 });
 
+
+
+Route::get('/history', function () {
+    $books = Product::where('category', 'History')->get();
+    return view('history', compact('books'));
+})->name('history');
+
+
+
 Route::get('/Stationery', function () {
     return view('Stationery');
 });
@@ -98,8 +107,6 @@ Route::put('/products/{id}', [AdminDashboardController::class, 'updateProduct'])
 Route::delete('/products/{id}', [AdminDashboardController::class, 'deleteProduct'])->name('admin.products.delete');
 Route::get('/admin/orders', [AdminDashboardController::class, 'showOrders'])->name('admin.orders');
 
-
 });
-
 
 

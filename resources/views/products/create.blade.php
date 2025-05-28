@@ -29,15 +29,17 @@
         </div>
 <div class="mb-3">
     <label for="category" class="form-label">Category</label>
+   <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
     <select name="category" id="category" class="form-control" required>
         <option value="">-- Select Category --</option>
         <option value="Fiction">Fiction</option>
         <option value="NonFiction">NonFiction</option>
         <option value="Children">Children</option>
-        <option value="Stationery">Stationery</option>
-        <option value="Toys">Toys</option>
-        <!-- Add more categories as needed -->
+        <option value="History">History</option>
     </select>
+</div>
+
 </div>
 <div class="mb-3">
     <label for="stock" class="form-label">Stock Quantity</label>
