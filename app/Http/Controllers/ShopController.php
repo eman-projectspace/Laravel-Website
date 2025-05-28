@@ -14,22 +14,30 @@ class ShopController extends Controller
     return view('category', compact('products', 'category'));
 }
 
-  public function index(Request $request)
+public function index(Request $request)
 {
     $bookCategories = ['Fiction', 'NonFiction', 'Children', 'History'];
-
     $query = Product::whereIn('category', $bookCategories);
 
-    // Add search filtering if there's a search query
+    // Search
     if ($request->filled('search')) {
-        $searchTerm = $request->input('search');
-        $query->where('title', 'LIKE', '%' . $searchTerm . '%');
+        $query->where('title', 'LIKE', '%' . $request->search . '%');
     }
-            // Paginated
+
+    //  Filter by Price Range
+    if ($request->filled('min_price')) {
+        $query->where('price', '>=', $request->min_price);
+    }
+
+    if ($request->filled('max_price')) {
+        $query->where('price', '<=', $request->max_price);
+    }
+
     $products = $query->orderBy('created_at', 'asc')->paginate(12);
 
     return view('shop', compact('products'));
 }
+
 
 
     // Show all products on the homepage (index)
@@ -49,7 +57,7 @@ class ShopController extends Controller
     // Show the create form
     public function create()
     {
-        return view('products.create'); // form view
+        return view('products.create'); //    <!-- http://localhost:8000/products/create -->
     }
 
    public function store(Request $request)
@@ -77,7 +85,7 @@ if ($request->hasFile('images')) {
 Product::create([
     'title' => $request->title,
     'author' => $request->author,
-    'category' => $request->category, // Add this!
+    'category' => $request->category, 
     'price' => $request->price,
     'stock' => $request->stock ?? 0,
     'description' => $request->description ?? '',
