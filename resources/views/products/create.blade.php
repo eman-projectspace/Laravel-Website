@@ -47,4 +47,5 @@
 
         <button type="submit" class="btn btn-success">Add Book</button>
     </form>
+    <!-- http://localhost:8000/products/create -->
 @endsection
