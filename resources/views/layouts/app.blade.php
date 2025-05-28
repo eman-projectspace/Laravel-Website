@@ -79,7 +79,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
-    <a class="nav-link fw-semibold text-white" href="{{ url('profile.show') }}">
+    <a class="nav-link fw-semibold text-white" href="{{ url('profile') }}">
         <i class="bi bi-person-circle me-1"></i>My Profile
     </a>
 </li>

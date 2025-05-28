@@ -10,6 +10,7 @@ class Order extends Model
         'email',
         'address',
         'total',
+        'status',
         // add other fields you want to mass assign
     ];
 }

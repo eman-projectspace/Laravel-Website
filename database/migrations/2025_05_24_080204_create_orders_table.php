@@ -17,6 +17,7 @@ return new class extends Migration
         $table->string('email');
         $table->text('address');
         $table->decimal('total', 10, 2);
+      $table->string('status')->default('pending');
         $table->timestamps();
     });
 }

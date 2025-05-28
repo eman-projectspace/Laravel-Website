@@ -82,7 +82,7 @@
                     @forelse($recentOrders ?? [] as $order)
                         <tr>
                             <td>{{ $order->id }}</td>
-                            <td>{{ $order->customer_name }}</td>
+                           <td>{{ $order->name }}</td> 
                             <td>{{ $order->created_at->format('Y-m-d') }}</td>
                             <td><span class="badge bg-secondary">{{ ucfirst($order->status) }}</span></td>
                             <td>${{ number_format($order->total, 2) }}</td>
