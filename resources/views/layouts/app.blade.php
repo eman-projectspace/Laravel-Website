@@ -78,9 +78,11 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link fw-semibold text-white" href="#"><i class="bi bi-house-door me-1"></i>Your Profile</a>
-        </li>
+<li class="nav-item">
+    <a class="nav-link fw-semibold text-white" href="{{ url('profile.show') }}">
+        <i class="bi bi-person-circle me-1"></i>My Profile
+    </a>
+</li>
 
         <li class="nav-item position-relative">
           <a class="nav-link fw-semibold text-white d-flex align-items-center" href="{{ route('cart.index') }}">
@@ -118,6 +120,7 @@
               </button>
             </form>
           </li>
+          
         @endguest
       </ul>
 <form class="d-flex align-items-center bg-white p-2 rounded shadow-sm" role="search" action="{{ route('shop.index') }}" method="GET">

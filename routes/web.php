@@ -8,7 +8,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Middleware\IsAdmin;
 use App\Models\Product;
-
+use App\Http\Controllers\ProfileController;
 // Static Home
 Route::view('/', 'index');
 
@@ -43,11 +43,21 @@ Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'
 
 // Logout
 Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('logout');
+
+//  Auth middleware Protection
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     // other protected routes
 });
 
+// User Profile 
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+});  
 
 
 // Navbar Routes
