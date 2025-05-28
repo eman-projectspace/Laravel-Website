@@ -25,7 +25,7 @@ class ShopController extends Controller
         $searchTerm = $request->input('search');
         $query->where('title', 'LIKE', '%' . $searchTerm . '%');
     }
-
+            // Paginated
     $products = $query->orderBy('created_at', 'asc')->paginate(12);
 
     return view('shop', compact('products'));
