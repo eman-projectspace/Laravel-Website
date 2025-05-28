@@ -3,39 +3,6 @@
 @section('title', 'Home')
 
 @section('content')
-  <!-- Hero Section -->
- <!-- Carousel Section -->
-<div id="bookCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="carousel-image-wrapper">
-        <img src="https://media.istockphoto.com/id/2147589428/photo/a-stack-of-books-with-the-words-learning-never-ends-written-on-a-chalkboard.webp?a=1&b=1&s=612x612&w=0&k=20&c=2AKRRQ0nT2JsHHvDzTBIm8T3DMExUXpCHODl5Mtk9so=" class="d-block w-100 " alt="Books Slide 1">
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <div class="carousel-image-wrapper">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa2Gi_fzKiUAPTXSHpsNPvFAsPTzxyP6hZ2Q&s" class="d-block w-100" alt="Books Slide 2">
-      </div>
-    
-    </div>
-
-    <div class="carousel-item">
-      <div class="carousel-image-wrapper">
-        <img src="https://media.istockphoto.com/id/1198397706/photo/library-and-text-words-have-power.webp?a=1&b=1&s=612x612&w=0&k=20&c=qBlDUAgCKngBkjrZ3pXumqTqf7cAUaBsuF1OPbq6zz4=" class="d-block w-100" alt="Books Slide 3">
-      </div>
-    </div>
-  </div>
-
-  <button class="carousel-control-prev" type="button" data-bs-target="#bookCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#bookCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
 <style>
 .carousel-inner img {
@@ -107,16 +74,62 @@
     transform: translateY(-4px);
     transition: all 0.3s ease;
   }
-
+#btn-sub{
+  border:2px solid brown;
+  color:brown;
+    border-radius:3px ;
+}
+#btn-sub:hover{
+   background:brown;
+   color:white;
+   border:none;
+   transition:2s all ease;
+}
 </style>
 
+  <!-- Hero Section -->
+    <h1 class="display-5 fw-bold text-brown text-center">Welcome to Readings</h1>
+      <p class="lead text-muted text-center mt-2">Explore the world of books – Fiction, Non-Fiction, History, and more!</p>
 
-<!--  Section -->
+ <!-- Carousel Section -->
+<div id="bookCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="carousel-image-wrapper">
+        <img src="https://media.istockphoto.com/id/2147589428/photo/a-stack-of-books-with-the-words-learning-never-ends-written-on-a-chalkboard.webp?a=1&b=1&s=612x612&w=0&k=20&c=2AKRRQ0nT2JsHHvDzTBIm8T3DMExUXpCHODl5Mtk9so=" class="d-block w-100 " alt="Books Slide 1">
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="carousel-image-wrapper">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa2Gi_fzKiUAPTXSHpsNPvFAsPTzxyP6hZ2Q&s" class="d-block w-100" alt="Books Slide 2">
+      </div>
+    
+    </div>
+
+    <div class="carousel-item">
+      <div class="carousel-image-wrapper">
+        <img src="https://media.istockphoto.com/id/1198397706/photo/library-and-text-words-have-power.webp?a=1&b=1&s=612x612&w=0&k=20&c=qBlDUAgCKngBkjrZ3pXumqTqf7cAUaBsuF1OPbq6zz4=" class="d-block w-100" alt="Books Slide 3">
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#bookCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#bookCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+              <!--  btn -->
   <a href="{{ url('/shop') }}" class="explore-btn">Explore Books</a>
 
 
-
-  <!-- Featured Highlights -->
+              <!-- Famous Books -->
 <section style="padding: 3rem 0; background-color: #f8f9fa;">
   <div class="container">
     <h2 class="text-center mb-5" style="font-weight: bold; font-size: 2.2rem;">Most Famous Books</h2>
@@ -207,7 +220,7 @@
   </div>
 </section>
 
-<!--  -->
+                         <!-- Readers Says -->
   <section class="text-center my-5">
   <h2 class="mb-4">What Readers Say</h2>
   <blockquote class="blockquote">
@@ -215,12 +228,12 @@
     <footer class="blockquote-footer">Sana, <cite>Islamabad</cite></footer>
   </blockquote>
 </section>
-<!--  -->
+                       <!-- Subscribe  -->
 <section class="text-center my-5">
   <h3 class="mb-3">Subscribe to our newsletter</h3>
   <form id="subscribeForm" class="d-flex justify-content-center gap-2">
     <input type="email" id="emailInput" placeholder="Your email" class="form-control w-25" required />
-    <button type="submit" class="btn btn-brown">Subscribe</button>
+    <button type="submit" id="btn-sub">Subscribe</button>
   </form>
   <p id="message" class="mt-3 text-success" style="display:none;">Subscribed!</p>
 </section>
@@ -231,17 +244,17 @@
   const emailInput = document.getElementById('emailInput');
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault(); // prevent page reload
+    event.preventDefault();
 
     if(emailInput.value) {
-      message.style.display = 'block';  // show the subscribed message
-      form.reset(); // clear input field
+      message.style.display = 'block';  
+      form.reset(); 
     }
   });
 </script>
 
 
-  <!-- About / Callout -->
+  <!-- About  -->
   <section style="background:#5d4037; color:#fff; padding:3rem 0; text-align:center;">
     <h2>About Our Bookstore</h2>
     <p style="max-width:600px; margin:1rem auto;">

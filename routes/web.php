@@ -109,4 +109,6 @@ Route::get('/admin/orders', [AdminDashboardController::class, 'showOrders'])->na
 
 });
 
-
+Route::get('/about', function () {
+    return view('about');
+});

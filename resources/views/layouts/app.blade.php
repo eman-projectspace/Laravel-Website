@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@yield('title', 'My Laravel Website')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
- <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+<meta name="description" content="Readings – A wide collection of fiction, non-fiction, and children’s books." />
+<meta name="keywords" content="books, online bookstore, fiction, non-fiction, readings" />
+<meta name="author" content="Readings Team" />
 
  <style>
 
@@ -36,10 +41,28 @@
 .my-footer{
   background-color:#5d4037;
 }
+
+.btn-primary {
+  background: linear-gradient(135deg, #795548, #5d4037);
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+.navbar-toggler {
+  border-color: #fff;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.nav-link:hover {
+  text-decoration: underline;
+  color: #ffccbc !important;
+}
+
     </style>
 </head>
 <body>
     <header>
+      <!-- 1st Navbar  -->
 <nav class="navbar fixed-top navbar-expand-lg bg-brown text-white shadow-sm py-3">
 
   <div class="container-fluid">
@@ -97,17 +120,18 @@
           </li>
         @endguest
       </ul>
-<form class="d-flex mb-3" role="search" action="{{ route('shop.index') }}" method="GET">
-    <input class="form-control me-2" type="search" name="search" placeholder="Search books..." aria-label="Search" value="{{ request('search') }}" />
-    <button class="btn btn-primary" type="submit">Search</button>
+<form class="d-flex align-items-center bg-white p-2 rounded shadow-sm" role="search" action="{{ route('shop.index') }}" method="GET">
+  <input class="form-control me-2 border-0" type="search" name="search" placeholder="Search books..." aria-label="Search" value="{{ request('search') }}" />
+  <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
 </form>
+
     </div>
   </div>
 </nav>
 
 
 <!--2nd navbar  -->
-<!-- As a link -->
+            <!-- FICTION,NON-FICTION,CHILDREN,HISTORY -->
 <nav class="navbar sticky-top navbar-expand-lg bg-brown shadow-sm border-top border-bottom py-2">
   <div class="container-fluid justify-content-center gap-4 flex-wrap">
     <a  href="{{ url('/fiction') }}" class="nav-link fw-semibold text-light px-3 py-1 rounded brown-hover">Fiction
@@ -119,26 +143,28 @@
   
   </div>
 </nav>
-
-
-
-
-
     </header>
 
-    <main class="container py-4">
-        @yield('content')
+
+ <main class="container py-5 px-3">
+      @yield('content')
     </main>
 
-  <footer class="my-footer text-light py-4 mt-5">
+<footer class="my-footer text-light py-3 mt-5">
   <div class="container text-center">
-    <p class="mb-1">&copy; {{ date('Y') }} Readings Bookstore. All rights reserved.</p>
+    <p class="mb-2">&copy; {{ date('Y') }} Readings Bookstore. All rights reserved.</p>
+    <div class="mb-2">
+      <a href="#" class="text-light mx-2"><i class="bi bi-facebook">Reading_fb</i></a>
+      <a href="#" class="text-light mx-2"><i class="bi bi-instagram">readings.official</i></a>
+      <a href="#" class="text-light mx-2"><i class="bi bi-twitter-x">readings.offical12</i></a>
+    </div>
     <p class="mb-0">
       <a href="#" class="text-light text-decoration-none">Privacy Policy</a> |
       <a href="#" class="text-light text-decoration-none">Terms of Service</a>
     </p>
   </div>
 </footer>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
