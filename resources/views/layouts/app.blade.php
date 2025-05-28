@@ -33,7 +33,9 @@
   background-color: #3e2723; /* Darker brown on hover */
   color: #ffffff !important;
 }
-
+.my-footer{
+  background-color:#5d4037;
+}
     </style>
 </head>
 <body>
@@ -95,11 +97,10 @@
           </li>
         @endguest
       </ul>
-
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search books..." aria-label="Search" />
-        <button class="btn btn-light text-brown fw-semibold" type="submit">Search</button>
-      </form>
+<form class="d-flex mb-3" role="search" action="{{ route('shop.index') }}" method="GET">
+    <input class="form-control me-2" type="search" name="search" placeholder="Search books..." aria-label="Search" value="{{ request('search') }}" />
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
     </div>
   </div>
 </nav>
@@ -129,7 +130,7 @@
         @yield('content')
     </main>
 
-  <footer class="bg-dark text-light py-4 mt-5">
+  <footer class="my-footer text-light py-4 mt-5">
   <div class="container text-center">
     <p class="mb-1">&copy; {{ date('Y') }} Readings Bookstore. All rights reserved.</p>
     <p class="mb-0">

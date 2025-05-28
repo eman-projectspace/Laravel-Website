@@ -14,18 +14,23 @@ class ShopController extends Controller
     return view('category', compact('products', 'category'));
 }
 
-  public function index()
+  public function index(Request $request)
 {
-    $products = Product::all(); // fetch all books from DB
+    $bookCategories = ['Fiction', 'NonFiction', 'Children', 'History'];
+
+    $query = Product::whereIn('category', $bookCategories);
+
+    // Add search filtering if there's a search query
+    if ($request->filled('search')) {
+        $searchTerm = $request->input('search');
+        $query->where('title', 'LIKE', '%' . $searchTerm . '%');
+    }
+
+    $products = $query->orderBy('created_at', 'asc')->paginate(12);
+
     return view('shop', compact('products'));
 }
 
-public function index()
-{
-    $bookCategories = ['Fiction', 'NonFiction', 'Children', 'History'];
-    $products = Product::whereIn('category', $bookCategories)->get();
-    return view('shop', compact('products'));
-}
 
     // Show all products on the homepage (index)
     public function home()
