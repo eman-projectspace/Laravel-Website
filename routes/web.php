@@ -11,7 +11,7 @@ use App\Http\Controllers\ToyController;
 use App\Http\Middleware\IsAdmin;
 use App\Models\Product;
 
-// ----------------- Public Routes -----------------
+//               Public Routes 
 Route::view('/', 'index');
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
@@ -27,7 +27,7 @@ Route::get('/Stationery', fn() => view('Stationery'));
 Route::get('/Toys', fn() => view('Toys'));
 Route::get('/about', fn() => view('about'));
 
-// ----------------- Authentication Routes -----------------
+//      Authentication Routes  
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register.form');
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 
@@ -35,7 +35,7 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLog
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('logout');
 
-// ----------------- Authenticated User Routes -----------------
+//                   Authenticated User Routes 
 Route::middleware(['auth'])->group(function () {
     // Cart
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
 
-// ----------------- Admin Routes (Admin Only) -----------------
+//                Admin Routes (Admin Only) 
 Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
