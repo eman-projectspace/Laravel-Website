@@ -8,8 +8,22 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <form method="POST" action="{{ route('profile.update') }}">
+
+        <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
+
         @csrf
+
+        <div class="mb-3">
+    <label>Profile Picture:</label>
+    <input type="file" name="profile_picture" class="form-control">
+</div>
+
+@if ($user->profile_picture)
+    <div class="mb-3">
+        <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="Profile Picture" class="img-thumbnail" width="150">
+    </div>
+@endif
+
 
         <div class="mb-3">
             <label>Name:</label>

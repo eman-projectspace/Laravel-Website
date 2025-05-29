@@ -58,6 +58,9 @@
   color: #ffccbc !important;
 }
 
+.logout{
+  color:black;
+}
     </style>
 </head>
 <body>
@@ -67,7 +70,16 @@
 
   <div class="container-fluid">
     <a class="navbar-brand d-flex align-items-center text-white" href="#">
-      <img src="/images/reading.png" alt="Logo" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
+    @auth
+    @if(Auth::user()->profile_picture)
+        <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="User Avatar" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
+    @else
+        <img src="{{ asset('profile_pictures/Eman.webp') }}" alt="Default Avatar" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
+    @endif
+@else
+    <img src="/images/reading.png" alt="Logo" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
+@endauth
+
       <span class="fw-bold fs-4">Readings</span>
     </a>
 
@@ -80,7 +92,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
     <a class="nav-link fw-semibold text-white" href="{{ url('profile') }}">
-        <i class="bi bi-person-circle me-1"></i>My Profile
+        <i class="bi bi-person-circle me-1"></i>@auth
+    {{ Auth::user()->name }}
+@endauth
+
     </a>
 </li>
 
@@ -107,16 +122,12 @@
             </a>
           </li>
         @else
-          <li class="nav-item">
-            <a class="nav-link fw-semibold text-white" href="#">
-              <i class="bi bi-person-circle me-1"></i>{{ Auth::user()->name }}
-            </a>
-          </li>
+      
           <li class="nav-item">
             <form method="POST" action="{{ route('logout') }}">
               @csrf
               <button type="submit" class="nav-link btn btn-link fw-semibold text-white p-0">
-                <i class="bi bi-box-arrow-right me-1"></i>Logout
+                <i class="bi bi-box-arrow-right me-1 logout"></i>Logout
               </button>
             </form>
           </li>

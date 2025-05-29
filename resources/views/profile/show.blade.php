@@ -6,6 +6,12 @@
 
     <div class="card shadow-sm">
         <div class="card-body">
+            @if ($user->profile_picture)
+    <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="Profile Picture" class="img-thumbnail mb-3" width="150">
+@else
+    <img src="{{ asset('images/default-avatar.png') }}" alt="Default Profile Picture" class="img-thumbnail mb-3" width="150">
+@endif
+
             <p><strong>Name:</strong> {{ $user->name }}</p>
             <p><strong>Email:</strong> {{ $user->email }}</p>
             <!-- Add more fields if needed -->

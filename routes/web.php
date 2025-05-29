@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Middleware\IsAdmin;
 use App\Models\Product;
 use App\Http\Controllers\ProfileController;
+
 // Static Home
 Route::view('/', 'index');
 
@@ -121,4 +122,13 @@ Route::get('/admin/orders', [AdminDashboardController::class, 'showOrders'])->na
 
 Route::get('/about', function () {
     return view('about');
+});
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
