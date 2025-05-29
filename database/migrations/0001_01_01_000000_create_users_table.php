@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    //basic info of user login
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
+// password reset
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
