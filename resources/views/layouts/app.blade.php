@@ -74,7 +74,7 @@
     @if(Auth::user()->profile_picture)
         <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="User Avatar" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
     @else
-        <img src="{{ asset('profile_pictures/Eman.webp') }}" alt="Default Avatar" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
+        <img src="/images/reading.png" alt="Default Avatar" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
     @endif
 @else
     <img src="/images/reading.png" alt="Logo" height="50" width="50" class="me-2 rounded-circle shadow-sm" />
