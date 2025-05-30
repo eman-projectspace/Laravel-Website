@@ -11,7 +11,11 @@ class Order extends Model
         'address',
         'total',
         'status',
-        // add other fields you want to mass assign
+        
     ];
+    public function items()
+{
+    return $this->hasMany(OrderItem::class);  //	An order can have many items
+}
 }
 

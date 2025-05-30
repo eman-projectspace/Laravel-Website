@@ -11,10 +11,15 @@ class Product extends Model
 ];
 
 
-   // Product.php (Model)
 protected $casts = [
     'images' => 'array',
 ];
+
+public function orderItems()
+{
+    return $this->hasMany(OrderItem::class);  //	A product can appear in many order items
+}
+
 
 }
 
