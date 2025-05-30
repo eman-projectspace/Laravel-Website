@@ -107,6 +107,30 @@
     }
   }
 
+/* Smaller pagination size */
+.pagination {
+    font-size: 1rem;
+    margin-left:200px;
+     margin-right:200px;
+}
+
+.page-link {
+    padding: 0.25rem 0.5rem; /* Smaller buttons */
+    font-size: 0.75rem;
+    line-height: 1;
+
+}
+
+.page-item {
+    margin: 0 2px; /* Reduce space between buttons */
+}
+
+.pagination .page-item:first-child,
+.pagination .page-item:last-child {
+  display: none;
+}
+
+
 </style>
 
 <div class="container py-5">
@@ -152,8 +176,9 @@
         </div>
 
         <!-- Pagination  -->
-        <div class="d-flex justify-content-center mt-4">
-            {{ $products->links() }}
+        <div class="pagination">
+        {{ $products->links('vendor.pagination.bootstrap-5') }}
+
         </div>
     @endif
 </div>
