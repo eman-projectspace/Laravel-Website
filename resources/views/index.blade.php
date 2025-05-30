@@ -85,6 +85,33 @@
    border:none;
    transition:2s all ease;
 }
+#my-book{
+  height: 250px;
+  weight:10%;
+  margin-top:50px;
+  margin-bottom:50px;
+  display:flex;
+}
+#my-text{
+  margin-left:50px;
+  font-size:20px;
+  padding-top:30px;
+}
+#my-img{
+  border-radius:15px;
+}
+@media (max-width: 768px) {
+  #my-book {
+    flex-direction: column;
+    margin-bottom:500px;
+  }
+
+  #my-text {
+    margin-left: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
 </style>
 
   <!-- Hero Section -->
@@ -102,7 +129,7 @@
 
     <div class="carousel-item">
       <div class="carousel-image-wrapper">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa2Gi_fzKiUAPTXSHpsNPvFAsPTzxyP6hZ2Q&s" class="d-block w-100" alt="Books Slide 2">
+        <img src="https://media.istockphoto.com/id/1302566918/vector/untitled-9.jpg?s=612x612&w=0&k=20&c=o_9b3ZIoLt0BoZ4L_0XOp4HpHFaUlOHWaYw0cbV-cwM=" class="d-block w-100" alt="Books Slide 2">
       </div>
     
     </div>
@@ -220,6 +247,13 @@
   </div>
 </section>
 
+
+<!--  -->
+<section id="my-book">
+  <img src="/images/banner-img.webp" alt="Default Avatar" id="my-img" />
+  <p id="my-text">People who read books tend to develop a deeper understanding of the world around them. By engaging with different genres, cultures, and perspectives, they constantly expose themselves to new ideas and experiences that broaden their minds. Reading improves vocabulary, communication skills, and the ability to express thoughts clearly. </p>
+</section>
+<!--  -->
                          <!-- Readers Says -->
   <section class="text-center my-5">
   <h2 class="mb-4">What Readers Say</h2>
