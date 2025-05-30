@@ -10,6 +10,7 @@ use App\Http\Controllers\StationeryController;
 use App\Http\Controllers\ToyController;
 use App\Http\Middleware\IsAdmin;
 use App\Models\Product;
+use App\Http\Controllers\OrderController;
 
 //               Public Routes 
 Route::view('/', 'index');
@@ -69,7 +70,8 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () 
     Route::delete('/products/{id}', [AdminDashboardController::class, 'deleteProduct'])->name('admin.products.delete');
 
     // Orders
-    Route::get('/orders', [AdminDashboardController::class, 'showOrders'])->name('admin.orders');
+  Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+
 
     // Stationery
     Route::get('/stationery/create', [StationeryController::class, 'create'])->name('stationery.create');
@@ -79,3 +81,10 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () 
     Route::get('/toys/create', [ToyController::class, 'create'])->name('toys.create');
     Route::post('/toys/store', [ToyController::class, 'store'])->name('toys.store');
 });
+
+
+// Route::prefix('admin')->group(function () {
+// Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+
+
+// });

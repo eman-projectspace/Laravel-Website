@@ -35,7 +35,7 @@
 
         <!-- Total Orders -->
         <div class="col-md-3">
-            <a href="{{ route('admin.orders') }}" class="text-decoration-none">
+            <a href="{{ route('admin.orders.index') }}" class="text-decoration-none">
                 <div class="card text-white bg-warning shadow-sm h-100">
                     <div class="card-body">
                         <h5 class="card-title">Total Orders</h5>
@@ -65,33 +65,44 @@
     </div>
 
     <!-- Recent Orders Table -->
-    <div class="mt-5">
-        <h3 class="mb-3">Recent Orders</h3>
-        <div class="table-responsive">
-            <table class="table table-striped align-middle shadow-sm">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Order #</th>
-                        <th>Customer</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($recentOrders ?? [] as $order)
-                        <tr>
-                            <td>{{ $order->id }}</td>
-                           <td>{{ $order->name }}</td> 
-                            <td>{{ $order->created_at->format('Y-m-d') }}</td>
-                            <td><span class="badge bg-secondary">{{ ucfirst($order->status) }}</span></td>
-                            <td>${{ number_format($order->total, 2) }}</td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="5" class="text-center text-muted">No recent orders found.</td>
-                        </tr>
-                    @endforelse
+<!-- Recent Orders Table -->
+<div class="mt-5">
+    <h3 class="mb-3">Recent Orders</h3>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>Order #</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Items</th> <!-- New column for items -->
+                </tr>
+            </thead>
+            <tbody>
+              @foreach($recentOrders as $order)
+                <tr>
+                    <td>{{ $order->id }}</td>
+                    <td>{{ $order->name }}</td>
+                    <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                    <td><span class="badge bg-secondary">{{ ucfirst($order->status) }}</span></td>
+                    <td>${{ number_format($order->total, 2) }}</td>
+                    <td>
+                        <ul class="mb-0">
+                            @foreach($order->items as $item)
+                                <li>{{ $item->product->title ?? 'Product not found' }} — Qty: {{ $item->quantity }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                </tr>
+              @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
                 </tbody>
             </table>
         </div>

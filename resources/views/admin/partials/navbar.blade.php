@@ -17,7 +17,7 @@
           <a class="nav-link" href="#">Manage Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Orders</a>
+         <a href="{{ route('admin.orders.index') }}" style="text-decoration:none; color:white;">Manage Orders</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Reports</a>

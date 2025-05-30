@@ -11,27 +11,25 @@
                 <th>Status</th>
                 <th>Total</th>
                 <th>Ordered At</th>
+                <th>Items</th> <!-- New column for items -->
             </tr>
         </thead>
         <tbody>
-            @foreach($orders as $order)
-            <tr>
-                <td>{{ $order->id }}</td>
-                <td>{{ $order->name }}</td>
-            @php
-    $color = match($order->status) {
-        'pending' => 'warning',
-        'shipped' => 'primary',
-        'delivered' => 'success',
-        'cancelled' => 'danger',
-        default => 'secondary',
-    };
-@endphp
-<td><span class="badge bg-{{ $color }}">{{ ucfirst($order->status) }}</span></td>
-
-                <td>${{ number_format($order->total, 2) }}</td>
-                <td>{{ $order->created_at->format('Y-m-d') }}</td>
-            </tr>
+            @foreach($recentOrders as $order)
+                <tr>
+                    <td>{{ $order->id }}</td>
+                    <td>{{ $order->name }}</td>
+                    <td><span class="badge bg-secondary">{{ ucfirst($order->status) }}</span></td>
+                    <td>${{ number_format($order->total, 2) }}</td>
+                    <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                    <td>
+                        <ul class="mb-0">
+                            @foreach($order->items as $item)
+                                <li>{{ $item->product->title ?? 'Product not found' }} — Qty: {{ $item->quantity }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>
