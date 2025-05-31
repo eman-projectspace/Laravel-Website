@@ -8,7 +8,6 @@
 
     {{-- Add your dress listings here --}}
     <div class="row">
-        <!-- Example dress card -->
         <div class="col-md-4">
             <div class="card">
                 <img src="path-to-dress.jpg" class="card-img-top" alt="Dress">

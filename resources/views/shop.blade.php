@@ -32,7 +32,7 @@
         /* Custom styles for the filter form */
    /* Filter Bar Container */
   .filter-bar {
-    background-color: #f5f0e6; /* cream */
+    background-color: #f5f0e6; 
     padding: 12px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(101, 67, 33, 0.2);
@@ -48,7 +48,7 @@
   /* Input styling */
   .filter-bar input[type=number] {
     width: 150px;
-    border: 2px solid #5d4037; /* dark brown */
+    border: 2px solid #5d4037; 
     border-radius: 6px;
     padding: 8px 12px;
     font-size: 1rem;
@@ -63,7 +63,7 @@
   }
 
   .filter-bar input[type=number]:focus {
-    border-color: #8d6e63; /* medium brown */
+    border-color: #8d6e63; 
     background-color: #fff3e0;
     box-shadow: 0 0 6px #8d6e63;
     outline: none;
@@ -71,9 +71,9 @@
 
   /* Button styling */
   .filter-bar button {
-    background-color: #6d4c41; /* brown */
+    background-color: #6d4c41;
     border: none;
-    color: #fff3e0; /* cream */
+    color: #fff3e0; 
     font-weight: 600;
     padding: 10px 25px;
     border-radius: 6px;
@@ -84,7 +84,7 @@
   }
 
   .filter-bar button:hover {
-    background-color: #5d4037; /* darker brown */
+    background-color: #5d4037;
     transform: scale(1.05);
   }
 

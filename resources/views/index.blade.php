@@ -293,6 +293,7 @@
     <h2>About Our Bookstore</h2>
     <p style="max-width:600px; margin:1rem auto;">
       Founded in 2025, Book Haven brings together a curated selection of titles for every reader. Our passion is connecting you with stories that resonate.
+      Give us your suggestions.And tell us about the book you want.
     </p>
     <a href="{{ url('/about') }}" class="btn btn-outline-light">Learn More</a>
   </section>

@@ -54,7 +54,7 @@ public function index(Request $request)
         return view('product-detail', compact('product'));
     }
 
-    // Show the create form
+    //it will Show the create form
     public function create()
     {
         return view('products.create'); //    <!-- http://localhost:8000/products/create -->

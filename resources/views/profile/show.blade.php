@@ -14,7 +14,7 @@
 
             <p><strong>Name:</strong> {{ $user->name }}</p>
             <p><strong>Email:</strong> {{ $user->email }}</p>
-            <!-- Add more fields if needed -->
+            <!-- Add more fields  -->
 
             <a href="{{ route('profile.edit') }}" class="btn btn-primary mt-3">Edit Profile</a>
         </div>

@@ -7,7 +7,7 @@
 
     <!-- Stat Cards -->
     <div class="row g-4 mt-3">
-        <!-- Total Users -->
+        <!-- Total Users cards-->
         <div class="col-md-3">
             <a href="{{ route('admin.users') }}" class="text-decoration-none">
                 <div class="card text-white bg-primary shadow-sm h-100">
@@ -20,7 +20,7 @@
         </div>
 
 
-<!-- Total Products -->
+<!-- Total Products card -->
 <div class="col-md-3">
     <a href="{{ route('admin.products') }}" class="text-decoration-none">
         <div class="card text-white bg-info shadow-sm h-100">
@@ -33,7 +33,7 @@
 </div>
 
 
-        <!-- Total Orders -->
+        <!-- Total Orders card -->
         <div class="col-md-3">
             <a href="{{ route('admin.orders.index') }}" class="text-decoration-none">
                 <div class="card text-white bg-warning shadow-sm h-100">

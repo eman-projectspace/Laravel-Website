@@ -59,7 +59,7 @@ public function deleteProduct($id)
 
 public function showOrders()
 {
-    $orders = Order::latest()->get(); // or ->paginate(10) if you want pagination
+    $orders = Order::latest()->get(); // or ->paginate(10) 
     return view('admin.orders.index', compact('orders'));
 }
 

@@ -29,6 +29,6 @@ public function index()
     // Create a new order (usually from checkout)
     public function store(Request $request)
     {
-        // You’ll add checkout logic here later
+        // checkout logic here 
     }
 }

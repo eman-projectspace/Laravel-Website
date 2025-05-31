@@ -27,7 +27,7 @@
 }
 
 .bg-brown {
-  background-color: #5d4037; /* Chocolate brown */
+  background-color: #5d4037; 
 }
 
 .brown-hover {
@@ -35,7 +35,7 @@
 }
 
 .brown-hover:hover {
-  background-color: #3e2723; /* Darker brown on hover */
+  background-color: #3e2723; 
   color: #ffffff !important;
 }
 .my-footer{

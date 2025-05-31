@@ -41,7 +41,7 @@
         box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     }
     .book-image {
-        height: 180px;  /* smaller height */
+        height: 180px; 
         object-fit: cover;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
