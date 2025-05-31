@@ -1,25 +1,93 @@
-@extends('layouts.app') <!-- use your main layout file -->
+@extends('layouts.app')
 
 @section('title', 'About Us')
 
 @section('content')
 <style>
-    .box{
-gap:5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    #send-query {
+        display: flex;
+        gap: 30px;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        padding: 30px;
+        align-items: center;
+        max-width: 900px;
+        margin: 50px auto;
     }
-    #myImage{
-        height:200px;
-        width: 200px;
-        padding:50px;
-        margin-top:50px;
-        margin-bottom:50px;
+
+    #send-query img {
+        height: 250px;
+        width: 220px;
+        cursor: pointer;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
     }
-    #send-query{
-        display:flex;
+
+    #send-query img:hover {
+        transform: scale(1.05);
+    }
+
+
+    #send-query form {
+        flex: 1;
+    }
+
+    #send-query h4 {
+        color: #6f4e37; 
+        margin-bottom: 20px;
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+
+    #send-query input.form-control,
+    #send-query textarea.form-control {
+        border-radius: 8px;
+        border: 1.5px solid #ddd;
+        padding: 12px 15px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    #send-query input.form-control:focus,
+    #send-query textarea.form-control:focus {
+        border-color: #a9746e; 
+        box-shadow: 0 0 8px rgba(169,116,110, 0.3);
+        outline: none;
+    }
+
+    #send-query button {
+        background-color: #a9746e;
+        border: none;
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        color: white;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    #send-query button:hover {
+        background-color: #7a594c;
+    }
+
+  
+    .alert-success {
+        margin-bottom: 15px;
+        border-radius: 8px;
+        font-weight: 500;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        padding: 12px 15px;
     }
 </style>
+
 <div class="container py-5">
+    <div class="container py-5">
     <div class="row align-items-center">
         <div class="col-md-6 mb-4" data-aos="fade-right">
             <img src="{{ asset('images/reading.png') }}" alt="Bookstore Image" class="img-fluid rounded shadow">
@@ -33,30 +101,34 @@ gap:5px;
         </div>
         <hr>
     </div>
-<!--  -->
-<div id="send-query" class="p-4 mt-5 rounded">
-    <img id="myImage" onclick="changeImage()" src="/images/off bulb2.jpg">
 
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+    <div id="send-query">
+        <img id="myImage" onclick="changeImage()" src="/images/off bulb2.jpg" alt="Light Bulb Image" />
 
-    <form method="POST" >
-        @csrf
-           <h4 class="mb-3">Send Your Suggestion </h4>
-        <div class="mb-2">
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-        </div>
-        <div class="mb-2">
-            <input type="email" name="email" class="form-control" placeholder="Your Email (optional)">
-        </div>
-        <div class="mb-2">
-            <textarea name="message" class="form-control" rows="3" placeholder="Your message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary mt-2">Send</button>
-    </form>
+        <form method="POST" action="{{ route('suggestions.store') }}">
+            @csrf
+
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+
+            <h4>Send Your Suggestion</h4>
+            <div class="mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Your Email (optional)">
+            </div>
+            <div class="mb-3">
+                <textarea name="message" class="form-control" rows="4" placeholder="Your message" required></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- The rest of page content -->
 </div>
-<hr>
+
 <script>
 function changeImage() {
   var image = document.getElementById('myImage');
@@ -67,20 +139,5 @@ function changeImage() {
   }
 }
 </script>
-    <!--  -->
-    <div class="row mt-5 text-center ">
-        <div class="col-md-4 box" data-aos="fade-up">
-            <h4 class="text-brown">Wide Selection</h4>
-            <p>Thousands of titles across genres — all in one place.</p>
-        </div>
-        <div class="col-md-4 box" data-aos="fade-up" data-aos-delay="100">
-            <h4 class="text-brown">Fast Delivery</h4>
-            <p>Get your favorite books delivered to your doorstep quickly.</p>
-        </div>
-        <div class="col-md-4 box" data-aos="fade-up" data-aos-delay="200">
-            <h4 class="text-brown">Trusted by Readers</h4>
-            <p>Join thousands of happy readers who trust Readings.</p>
-        </div>
-    </div>
-</div>
+
 @endsection

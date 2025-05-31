@@ -11,6 +11,9 @@ use App\Http\Controllers\ToyController;
 use App\Http\Middleware\IsAdmin;
 use App\Models\Product;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SuggestionController;
+
+Route::post('/suggestions', [SuggestionController::class, 'store'])->name('suggestions.store');
 
 //               Public Routes 
 Route::view('/', 'index');
