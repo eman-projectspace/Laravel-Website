@@ -74,6 +74,7 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function () 
 
     // Orders
   Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+Route::get('/admin/suggestions', [SuggestionController::class, 'index'])->name('admin.suggestions');
 
 
     // Stationery

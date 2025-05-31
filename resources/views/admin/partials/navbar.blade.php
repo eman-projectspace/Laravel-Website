@@ -11,13 +11,16 @@
           <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Manage Products</a>
-        </li>
+    <a class="nav-link" href="{{ route('admin.suggestions') }}">
+        <i class="fas fa-envelope"></i> Suggestions
+    </a>
+</li>
+
         <li class="nav-item">
           <a class="nav-link" href="#">Manage Users</a>
         </li>
         <li class="nav-item">
-         <a href="{{ route('admin.orders.index') }}" style="text-decoration:none; color:white;">Manage Orders</a>
+         <a class="nav-link" href="{{ route('admin.orders.index') }}" style="text-decoration:none;">Manage Orders</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Reports</a>

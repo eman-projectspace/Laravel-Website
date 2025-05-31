@@ -19,4 +19,10 @@ class SuggestionController extends Controller
 
         return back()->with('success', 'Thank you for your suggestion!');
     }
+    public function index()
+{
+    $suggestions = \App\Models\Suggestion::latest()->get(); // fetch all suggestions
+    return view('admin.suggestions', compact('suggestions'));
+}
+
 }
